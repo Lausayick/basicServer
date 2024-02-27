@@ -20,6 +20,9 @@ class MySQLInfo:
     if socket.gethostname() == 'Lausayick':  # 本地调试ip
         ip = '122.51.25.144'
         port = 3306
+    elif socket.gethostname() == 'basic-server-UtHs86Jga0':  # basic-server 服务器
+        ip = '127.0.0.1'
+        port = 3306
     else:
         raise TypeError("Error Host Server!")
     username = 'private_domain'
@@ -27,7 +30,7 @@ class MySQLInfo:
     database = 'private_domain'
 
 
-def MySQL():
+def MySQL_Connect():
     """ Used for connecting to mysql database. """
     conn = pymysql.connect(host=MySQLInfo.ip, port=MySQLInfo.port, user=MySQLInfo.username, password=MySQLInfo.password, database=MySQLInfo.database)
     cur = conn.cursor()
